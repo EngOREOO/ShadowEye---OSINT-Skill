@@ -1,77 +1,47 @@
-# ShadowEye — OSINT Skill
+# ShadowEye — Elite OSINT Intelligence Engine
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Version-1.0.0-blue?style=for-the-badge" alt="Version">
-  <img src="https://img.shields.io/badge/OSINT-Expert-red?style=for-the-badge" alt="OSINT">
+  <img src="https://img.shields.io/badge/Version-2.0.0-blue?style=for-the-badge" alt="Version">
+  <img src="https://img.shields.io/badge/OSINT-Elite-red?style=for-the-badge" alt="OSINT">
+  <img src="https://img.shields.io/badge/Auto-Execute-brightgreen?style=for-the-badge" alt="Auto-Execute">
+  <img src="https://img.shields.io/badge/Platforms-50+-orange?style=for-the-badge" alt="Platforms">
   <img src="https://img.shields.io/badge/Bug%20Bounty-Ready-green?style=for-the-badge" alt="Bug Bounty">
   <img src="https://img.shields.io/badge/Platform-opencode-purple?style=for-the-badge" alt="Platform">
   <img src="https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge" alt="License">
 </p>
 
 <p align="center">
-  <b>A powerful OSINT skill for opencode that transforms your AI into an elite intelligence gatherer.</b>
+  <b>全自动 OSINT intelligence engine that automatically searches 50+ platforms when given a photo or name.</b>
 </p>
 
 <p align="center">
-  <i>See what others can't. Find what others miss.</i>
+  <i>See the unseen. Find the unfound. Know the unknown.</i>
 </p>
 
 ---
 
 ## What is ShadowEye?
 
-ShadowEye is an advanced **Open Source Intelligence (OSINT)** skill designed for **bug bounty hunters** and **security researchers**. It transforms your opencode AI into a seasoned intelligence professional capable of:
+ShadowEye is an **elite OSINT intelligence engine** designed for **bug bounty hunters** and **security researchers**. It transforms your opencode AI into a **全自动 intelligence professional** that:
 
-- **Photo Analysis** — Extract metadata, GPS locations, camera info, and identify people
-- **Reverse Image Search** — Cross-reference images across 10+ platforms
-- **Social Media Discovery** — Find profiles across all major platforms
-- **Username Enumeration** — Discover accounts across 400+ sites
-- **Email Investigation** — Check breaches, reputation, and linked accounts
-- **Domain Reconnaissance** — Map attack surfaces, find exposed assets
-- **Private Program Scope Analysis** — Understand and map bug bounty targets
+- **Auto-Executes** — No confirmation needed, just works
+- **Searches 50+ Platforms** — Covers all major social media and OSINT sources
+- **Runs in Parallel** — Multiple searches simultaneously
+- **Generates Full Reports** — Professional, organized, actionable
+- **Works Instantly** — Photo or name → Full intelligence report
 
----
+### Key Capabilities
 
-## Key Features
-
-### Photo Intelligence
-```
-Input: Photo of a person
-Output: Full intelligence profile
-```
-- EXIF metadata extraction (GPS, camera, timestamps)
-- Reverse image search (Google, Yandex, TinEye, Bing)
-- Face recognition and analysis
-- Background object identification
-- Clothing/brand detection
-- Social media profile matching
-
-### Social Media Deep Dive
-- Facebook, Instagram, Twitter/X, LinkedIn, TikTok
-- YouTube, Pinterest, Reddit, GitHub
-- Platform-specific username enumeration
-- Activity timeline reconstruction
-
-### Domain & Infrastructure Recon
-- Subdomain enumeration (Subfinder, Amass)
-- DNS record analysis
-- Technology fingerprinting
-- Port scanning
-- Exposed file detection (.env, .git, backups)
-- Certificate transparency logs
-- Historical data (Wayback Machine)
-
-### Breach & Leak Analysis
-- HaveIBeenPwned integration
-- DeHashed searches
-- IntelX intelligence
-- Password leak detection
-
-### Bug Bounty Ready
-- Private program scope analysis
-- Attack surface mapping
-- Low-hanging fruit identification
-- Report generation templates
+| Capability | Description | Platforms |
+|------------|-------------|-----------|
+| **Photo Analysis** | Extract metadata, GPS, camera info | EXIF, Google, Yandex, TinEye |
+| **Face Recognition** | Identify people from photos | PimEyes, FaceCheck, SocialCatfish |
+| **Social Media Sweep** | Find all profiles | Facebook, Instagram, Twitter, LinkedIn, TikTok, YouTube, Reddit, Pinterest, Snapchat |
+| **Username Enumeration** | Discover accounts across 400+ sites | Sherlock, Maigret, Namechk, KnowEm |
+| **Email Investigation** | Find emails, check breaches | Hunter.io, HIBP, DeHashed, IntelX |
+| **Phone Discovery** | Find phone numbers | Truecaller, Sync.me, WhitePages |
+| **Domain Recon** | Map attack surfaces | Subfinder, Amass, Shodan, Censys |
+| **Breach Check** | Find leaked data | HIBP, BreachDirectory, Leaked.site |
 
 ---
 
@@ -80,8 +50,9 @@ Output: Full intelligence profile
 ### Prerequisites
 - [opencode](https://opencode.ai) installed
 - Git
+- Python 3.x (for some tools)
 
-### Quick Install
+### Quick Install (Recommended)
 
 ```bash
 # Clone the repository
@@ -89,6 +60,9 @@ git clone https://github.com/EngOREOO/ShadowEye---OSINT-Skill.git
 
 # Copy to opencode skills directory
 cp -r ShadowEye---OSINT-Skill ~/.agents/skills/shadoweye
+
+# Install optional tools (recommended for full power)
+pip install sherlock-project maigret theHarvester
 
 # Restart opencode to load the skill
 ```
@@ -99,92 +73,128 @@ cp -r ShadowEye---OSINT-Skill ~/.agents/skills/shadoweye
 # Create skill directory
 mkdir -p ~/.agents/skills/shadoweye
 
-# Copy SKILL.md
+# Copy files
 cp SKILL.md ~/.agents/skills/shadoweye/
+cp README.md ~/.agents/skills/shadoweye/
+cp LICENSE ~/.agents/skills/shadoweye/
 
 # Restart opencode
 ```
 
 ### Verify Installation
 
-After restarting opencode, the skill should be automatically loaded. You can verify by typing:
+After restarting opencode, the skill should be automatically loaded. Test by:
 
-```
-/osint
-```
+1. Sending a photo to the AI
+2. Typing a person's name
+3. Asking "who is this person?"
 
-If the command is recognized, ShadowEye is installed correctly.
+If ShadowEye starts searching automatically, it's working correctly.
+
+### Optional Tools Installation
+
+For maximum power, install these tools:
+
+```bash
+# Username enumeration
+pip install sherlock-project
+pip install maigret
+
+# Email/domain recon
+pip install theHarvester
+
+# Subdomain enumeration
+go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
+go install github.com/owasp-amass/amass/v4/...@master
+
+# HTTP probing
+go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest
+
+# Metadata extraction
+brew install exiftool
+```
 
 ---
 
 ## Usage
 
-### Quick Commands
+### How It Works — Fully Automatic
 
-| Command | Description |
-|---------|-------------|
-| `/osint` | Activate OSINT mode |
-| `/osint photo.jpg` | Analyze a photo |
-| `/osint John Doe` | Investigate a person |
-| `/osint example.com` | Recon a domain |
-| `/osint user@email.com` | Investigate an email |
-| `/osint @username` | Search username |
-
-### Photo Analysis
+**Just provide input → ShadowEye does everything automatically:**
 
 ```
-/osint photo.jpg
+User: [sends photo]
+ShadowEye: [automatically runs full OSINT pipeline]
+ShadowEye: [presents complete intelligence report]
 ```
 
-ShadowEye will:
-1. Extract all EXIF data (GPS, camera, date)
-2. Perform reverse image search on multiple platforms
-3. Identify the person (if public figure)
-4. Search for social media profiles
-5. Check for data breaches
-6. Generate a full intelligence report
+**No commands needed. No confirmation needed. Just works.**
 
-### Person Investigation
+### Input Types → Auto-Actions
 
+| Input Type | What Happens Automatically |
+|------------|---------------------------|
+| **Photo** | EXIF extraction → Reverse image search → Face recognition → Social media sweep → Username enumeration → Email discovery → Full report |
+| **Person Name** | Name search → Username enumeration → Email discovery → Social media sweep → Breach check → Full report |
+| **Email** | Breach check → Email reputation → Linked accounts → Social profiles → Full report |
+| **Username** | Username enumeration across 400+ platforms → Full report |
+| **Domain** | Subdomain enumeration → DNS analysis → Tech stack → Exposed files → Full report |
+| **Phone** | Phone lookup → Social profiles → Breach check → Full report |
+
+### Example: Photo Analysis
+
+**Input:**
 ```
-/osint John Smith
-```
-
-ShadowEye will:
-1. Search social media platforms
-2. Enumerate usernames (Sherlock, Maigret)
-3. Find email patterns
-4. Check data breaches
-5. Search public records
-6. Generate a profile report
-
-### Domain Reconnaissance
-
-```
-/osint example.com
+[User uploads photo of a person]
 ```
 
-ShadowEye will:
-1. Enumerate subdomains
-2. Analyze DNS records
-3. Fingerprint technology stack
-4. Scan for exposed files
-5. Check certificate transparency
-6. Query Wayback Machine
-7. Generate a recon report
+**Auto-Execution (happens automatically):**
+1. ✅ Extract EXIF metadata (GPS, camera, timestamp)
+2. ✅ Reverse image search on Google, Yandex, TinEye, Bing
+3. ✅ Face recognition on PimEyes, FaceCheck
+4. ✅ Generate name variations
+5. ✅ Search Facebook, Instagram, Twitter, LinkedIn, TikTok
+6. ✅ Enumerate usernames on 400+ sites
+7. ✅ Search for email patterns
+8. ✅ Check data breaches
+9. ✅ Generate complete intelligence report
 
-### Email Investigation
+**Output:**
+```markdown
+# ShadowEye Intelligence Report
 
+## Target: John Smith
+**Generated:** 2026-07-16 04:45:00
+**Confidence:** HIGH (8/10)
+
+---
+
+## IDENTITY
+| Field | Value | Source |
+|-------|-------|--------|
+| Full Name | John Smith | Face recognition |
+| Age | ~32 | Photo analysis |
+| Location | San Francisco, CA | GPS metadata |
+| Occupation | Software Engineer | LinkedIn |
+
+## SOCIAL MEDIA ACCOUNTS
+| Platform | Username | URL | Verified |
+|----------|----------|-----|----------|
+| Facebook | john.smith | facebook.com/john.smith | ✅ |
+| Instagram | @johnsmith_dev | instagram.com/johnsmith_dev | ✅ |
+| Twitter | @johnsmith | twitter.com/johnsmith | ✅ |
+| LinkedIn | johnsmith | linkedin.com/in/johnsmith | ✅ |
+| GitHub | jsmith | github.com/jsmith | ✅ |
+
+## EMAILS FOUND
+| Email | Source | Breach? |
+|-------|--------|---------|
+| john.smith@gmail.com | Hunter.io | ⚠️ Yes |
+| jsmith@techcorp.com | LinkedIn | No |
+
+## CONFIDENCE SCORE: 8/10
+## RISK LEVEL: MEDIUM
 ```
-/osint user@example.com
-```
-
-ShadowEye will:
-1. Check data breaches (HIBP)
-2. Analyze email reputation
-3. Find linked social accounts
-4. Identify associated domains
-5. Generate an investigation report
 
 ---
 
@@ -193,35 +203,65 @@ ShadowEye will:
 ### Photo Analysis Report
 
 ```markdown
-# OSINT Report: Photo Analysis
+# ShadowEye Intelligence Report
 
-## Summary
-Photo analyzed from LinkedIn profile. Subject identified as 
-John Smith, Software Engineer at Tech Corp, based in San Francisco.
+## Target: Photo Analysis
+**Generated:** 2026-07-16 04:45:00
+**Confidence:** HIGH (9/10)
 
-## Identity
-- **Name:** John Smith
-- **Age:** ~32 years old
-- **Location:** San Francisco, CA (GPS: 37.7749° N, 122.4194° W)
-- **Occupation:** Software Engineer
+---
 
-## Digital Footprint
-### Social Media
-| Platform | Username | URL |
-|----------|----------|-----|
-| LinkedIn | johnsmith | linkedin.com/in/johnsmith |
-| GitHub | jsmith | github.com/jsmith |
-| Twitter | @johnsmith_dev | twitter.com/johnsmith_dev |
+## PHOTO METADATA
+| Field | Value |
+|-------|-------|
+| Camera | iPhone 15 Pro Max |
+| GPS | 40.7128° N, 74.0060° W (New York, NY) |
+| Date | 2026-07-15 14:32:15 |
+| Software | Adobe Photoshop 25.0 |
+| Owner | Not embedded |
 
-## Technical Assets
-- **Email:** john.smith@techcorp.com
-- **GitHub Repos:** 15 public repos
-- **Domains:** johnsmith.dev (personal blog)
+## FACE ANALYSIS
+| Attribute | Value |
+|-----------|-------|
+| Name | Sarah Johnson (92% confidence) |
+| Age | ~28 years old |
+| Gender | Female |
+| Ethnicity | Caucasian |
+| Hair | Brown, long |
+| Glasses | Yes, prescription |
+| Distinguishing | Small tattoo on left wrist |
 
-## Risk Assessment
-- **Exposure Level:** MEDIUM
-- **Key Findings:** Public profile with consistent username
-- **Recommendations:** Monitor for credential leaks
+## CONTEXT CLUES
+| Item | Details |
+|------|---------|
+| Background | Manhattan skyline, likely rooftop |
+| Clothing | Nike athletic wear |
+| Watch | Apple Watch Series 9 |
+| Phone | iPhone 15 Pro (visible in reflection) |
+
+## SOCIAL MEDIA ACCOUNTS
+| Platform | Username | URL | Confidence |
+|----------|----------|-----|------------|
+| Facebook | sarah.johnson | facebook.com/sarah.johnson | HIGH |
+| Instagram | @sarahj_nyc | instagram.com/sarahj_nyc | HIGH |
+| LinkedIn | sarahjohnson | linkedin.com/in/sarahjohnson | HIGH |
+| Twitter | @sarahjohnson | twitter.com/sarahjohnson | MEDIUM |
+| TikTok | @sarahj | tiktok.com/@sarahj | HIGH |
+
+## EMAILS FOUND
+| Email | Source | Breach? |
+|-------|--------|---------|
+| sarah.johnson@gmail.com | Hunter.io | ⚠️ Yes (2023) |
+| sjohnson@techcorp.com | LinkedIn | No |
+
+## DATA BREACHES
+| Service | Date | Data Exposed |
+|---------|------|--------------|
+| LinkedIn | 2023 | Email, password hash |
+| Adobe | 2013 | Email, password hint |
+
+## CONFIDENCE SCORE: 9/10
+## RISK LEVEL: MEDIUM
 ```
 
 ---
